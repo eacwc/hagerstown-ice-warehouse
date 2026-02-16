@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hagerstown ICE Warehouse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ice-white: #f0f7ff;
+            --frost: #e1eef7;
+            --deep-blue: #1a365d;
+            --accent: #2c5282;
+            --warm-gray: #4a5568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(165deg, var(--ice-white) 0%, var(--frost) 50%, #d4e8f5 100%);
+            min-height: 100vh;
+            color: var(--deep-blue);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 320px;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--deep-blue) url('warehouse.jpeg') center center / cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(26, 54, 93, 0.6) 0%, rgba(26, 54, 93, 0.85) 100%);
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            letter-spacing: -0.02em;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(26, 54, 93, 0.15);
+            margin-bottom: 2.5rem;
+            display: block;
+        }
+
+        .problem-statement {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .problem-statement h2 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--deep-blue);
+        }
+
+        .problem-statement p {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .problem-statement p:last-child {
+            margin-bottom: 0;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.08);
+            margin-bottom: 2.5rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .action-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--deep-blue);
+        }
+
+        .action-card .event-name {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-card .event-details {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+        }
+
+        .action-card .event-details span {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .form-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--deep-blue);
+        }
+
+        .form-group {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--frost);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.15);
+        }
+
+        input[type="email"]::placeholder {
+            color: #a0aec0;
+        }
+
+        button[type="submit"] {
+            padding: 0.875rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--deep-blue);
+            transform: translateY(-1px);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        .credit {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--warm-gray);
+        }
+
+        .credit a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .credit a:hover {
+            text-decoration: underline;
+        }
+
+        .help-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .help-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--deep-blue);
+        }
+
+        .help-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .help-links a {
+            display: inline-block;
+            padding: 1.25rem 2rem;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: 0.02em;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+        }
+
+        .help-links a:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+        }
+
+        .google-form {
+            width: 100%;
+            min-height: 375px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.08);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <header>
+            <h1>Hagerstown ICE Warehouse</h1>
+            <p class="tagline">No ICE, No Concentration Camps</p>
+        </header>
+    </div>
+
+    <div class="container">
+        <img src="noIceJail.webp" alt="Hagerstown ICE Warehouse" class="hero-image">
+
+        <section class="problem-statement">
+            <p>On February 10, Washington County Commissioners voted unanimously to formally support the Department of Homeland Security (DHS) and ICE's planned detention facility at 16220 Wright Road, Williamsport, Maryland, just outside Hagerstown.</p>
+            <p>This property - a more than 825,000-square-foot warehouse purchased by DHS for approximately $102.4 million - is believed to be intended as a detention center capable of holding up to 1,500 people.</p>
+            <p>This is a concentration camp, and it is not welcome in Washington County.</p>
+        </section>
+
+        <section class="action-card">
+            <h2>Upcoming Action</h2>
+            <p class="event-name">Not My President Protest</p>
+            <div class="event-details">
+                <span id="event-date"></span>
+                <span>12–2 PM</span>
+                <span>Hagerstown Town Square</span>
+                <span>Hosted by Washington County Indivisible</span>
+            </div>
+        </section>
+
+        <section class="help-card">
+            <h2>Want to help?</h2>
+            <div class="help-links">
+                <a href="https://www.change.org/p/stop-the-ice-detention-center-in-washington-county" target="_blank" rel="noopener">Sign our petition</a>
+                <a href="https://secure.actblue.com/donate/eac2025" target="_blank" rel="noopener">Donate</a>
+                <a href="https://signal.group/#CjQKIM281krHadlC7--aDT7RCi9Pqb0RgjFMxr1K44rxSJ5GEhDlZROuRST8oj2Vanfnftui" target="_blank" rel="noopener">Join the Signal chat</a>
+            </div>
+        </section>
+
+        <iframe
+            class="google-form"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdm7gzm_qthL-LKp7dO0ppFNvPIup0ogF9j5mW56q6WdRfTiA/viewform?embedded=true"
+            width="640"
+            height="375"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Stay in the loop"
+        >Loading…</iframe>
+
+        <p class="credit">Brought to you by <a href="https://eacwc.org" target="_blank" rel="noopener">eacwc.org</a></p>
+    </div>
+
+    <script>
+        (function() {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('event-date').textContent = tomorrow.toLocaleDateString('en-US', options);
+        })();
+
+    </script>
+</body>
+</html>
