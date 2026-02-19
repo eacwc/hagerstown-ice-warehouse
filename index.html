@@ -299,12 +299,12 @@
 
         <section class="action-card">
             <h2>Upcoming Action</h2>
-            <p class="event-name">Not My President Protest</p>
+            <p class="event-name">Board of County Commissioners Meeting</p>
             <div class="event-details">
-                <span id="event-date"></span>
-                <span>12–2 PM</span>
-                <span>Hagerstown Town Square</span>
-                <span>Hosted by Washington County Indivisible</span>
+                <span>Tuesday, February 24th, 6 PM</span>
+                <span>Town Hall</span>
+                <span>30 E Baltimore Street</span>
+                <span>Funkstown, MD 21734</span>
             </div>
         </section>
 
@@ -330,15 +330,5 @@
 
         <p class="credit">Brought to you by <a href="https://eacwc.org" target="_blank" rel="noopener">eacwc.org</a></p>
     </div>
-
-    <script>
-        (function() {
-            const tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('event-date').textContent = tomorrow.toLocaleDateString('en-US', options);
-        })();
-
-    </script>
 </body>
 </html>
